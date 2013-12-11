@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+    <definition name=".mainTemplate" template="/views/templates/in/templateSign_in.jsp">
+        <put-attribute name="title" value="Sistema de Gerenciamento de reuniões" type="string" />
+        <put-attribute name="header" value="/views/templates/in/header.jsp" />
+        <put-attribute name="footer" value="/views/templates/in/footer.jsp" />
+        <put-attribute name="menu" value="/views/templates/in/menu.jsp" />
+        <put-attribute name="body" value="" />
+    </definition>
+    <definition name=".indexTemplate" template="/views/templates/out/templateSign_out.jsp">
+        <put-attribute name="title" value="Seja bem vindo ao Sisgr!" type="string" />
+        <put-attribute name="header" value="/views/templates/out/header.jsp" />
+        <put-attribute name="footer" value="/views/templates/out/footer.jsp" />
+        <put-attribute name="body" value="" />
+    </definition>
+        
+     <definition name="usuario/registro" extends=".indexTemplate">
+        <put-attribute name="body" value="/views/usuario/registro.jsp" />
+    </definition>
+    
+    <definition name="usuario/erro_cadastro" extends=".indexTemplate">
+        <put-attribute name="body" value="/views/usuario/erro_cadastro.jsp" />
+    </definition>
+    
+    <definition name="index" extends=".indexTemplate">
+        <put-attribute name="body" value="/views/index.jsp" />
+    </definition>
+    
+    <definition name="usuario/sucesso" extends=".indexTemplate">
+        <put-attribute name="body" value="/views/usuario/sucesso.jsp" />
+    </definition>
+    
+    <definition name="reuniao/agenda" extends=".mainTemplate">
+        <put-attribute name="body" value="/views/reuniao/agenda.jsp" />
+    </definition>
+    
+    <definition name="usuario/editar" extends=".mainTemplate">
+        <put-attribute name="body" value="/views/usuario/editar.jsp" />
+    </definition>
+    
+     <definition name="usuario/login" extends=".indexTemplate">
+        <put-attribute name="body" value="/views/usuario/login.jsp" />
+    </definition>
+    
+    <definition name="contato/contato" extends=".mainTemplate">
+        <put-attribute name="body" value="/views/contato/contato.jsp" />
+    </definition>
+    
+    <definition name="contato/editar" extends=".mainTemplate">
+        <put-attribute name="body" value="/WEB-INF/views/contato/editar.jsp" />
+    </definition>
+    
+    <definition name="reuniao/lista" extends=".mainTemplate">
+        <put-attribute name="body" value="/views/reuniao/lista.jsp" />
+    </definition>
+    
+    <definition name="usuario/enviar" extends=".indexTemplate">
+        <put-attribute name="body" value="/views/usuario/enviar.jsp" />
+    </definition>
+    
+    <definition name="enviar/sucesso" extends=".indexTemplate">
+        <put-attribute name="body" value="/views/usuario/enviarsucesso.jsp" />
+    </definition>
+    
+    <definition name="export" extends=".mainTemplate">
+        <put-attribute name="body" value="/views/reuniao/export.jsp" />
+    </definition>
+    
+    <definition name="reuniao/editar" extends=".mainTemplate">
+        <put-attribute name="body" value="/views/reuniao/editar.jsp" />
+    </definition>
+    
+    <definition name="contato/tarefas" extends=".mainTemplate">
+        <put-attribute name="body" value="/views/contato/tarefas.jsp" />
+    </definition>
+    
+    <definition name="reuniao/tarefas" extends=".mainTemplate">
+        <put-attribute name="body" value="/views/reuniao/tarefas.jsp" />
+    </definition>
+    
+    <definition name="reuniao/enviar" extends=".mainTemplate">
+        <put-attribute name="body" value="/views/reuniao/enviar.jsp" />
+    </definition>
+    
+    <definition name="tarefa/tarefas" extends=".mainTemplate">
+        <put-attribute name="body" value="/views/tarefa/tarefas.jsp" />
+    </definition>
+</tiles-definitions>
