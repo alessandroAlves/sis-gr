@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -6,20 +7,20 @@
   <input type="hidden" name="id" value="${reuniao.id}"/>
   
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab">Reuni„o</a></li>
+    <li class="active"><a href="#tab1" data-toggle="tab">Reuni√£o</a></li>
     <li><a href="#tab2" data-toggle="tab">Participantes</a></li>
     <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">AÁıes<b class="caret"></b></a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">A√ß√µes<b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li><a href="/sis-gr/enviarReuniao/${reuniao.id}"><i class="icon-envelope"></i> Enviar convites</a></li>
         <li><a href="/sis-gr/listaTarefas/${reuniao.id}"><i class="icon-list"></i> Lista de tarefas</a></li>
-        <li><a href="#"><i class="icon-print"></i> Imprimir</a></li>
+        <li><a href="/sis-gr/downloadPDF/${reuniao.id}"><i class="icon-print"></i> Imprimir</a></li>
         <li class="divider" />
-        <li><a href="/sis-gr/removerReuniao/${reuniao.id}"><i class="icon-trash"></i> Remover reuni„o</a></li>
+        <li><a href="/sis-gr/removerReuniao/${reuniao.id}"><i class="icon-trash"></i> Remover reuni√£o</a></li>
       </ul>
     </li>
     <div class="btn-group offset4">
-      <button type="submit" class="btn btn-info">Salvar AlteraÁıes</button>
+      <button type="submit" class="btn btn-info">Salvar Altera√ß√µes</button>
       <a href="/sis-gr/agenda" class="btn btn-warning">Cancelar</a>    
     </div>
   </ul>
@@ -30,8 +31,8 @@
       <div class="span7" style="background-color:buttonhighlight; border-radius: 10px;">  	
 	    <table style="margin: 15px" class="table-condensed">
 	      <tr>
-	        <td width="83px"><label><strong>TÌtulo</strong></label></td>
-	     	<td><input name="nome" type="text" placeholder="tÌtulo da reuni„o ..." class="input-xlarge" value="${reuniao.nome}" required/><br /></td>
+	        <td width="83px"><label><strong>T√≠tulo</strong></label></td>
+	     	<td><input name="nome" type="text" placeholder="t√≠tulo da reuni√£o ..." class="input-xlarge" value="${reuniao.nome}" required/><br /></td>
 	      </tr>
 	      <tr>
 	      	<fmt:formatDate pattern="yyyy-MM-dd" value="${reuniao.dia}" var="dia"/>
@@ -40,7 +41,7 @@
 	      </tr>
 	      <tr>
 	        <fmt:formatDate pattern="HH:mm" value="${reuniao.inicio}" var="inicio"/>
-	     	<td><label><strong>InÌcio</strong></label></td>
+	     	<td><label><strong>In√≠cio</strong></label></td>
 	     	<td><input name="inicio" type="time" class="input-medium" value="${inicio}" required/></td>
 	      </tr>
 	      <tr>
@@ -53,8 +54,8 @@
 	     	<td><input name="local" type="text" class="input-xlarge" value="${reuniao.local}" required/><br /></td>
 	      </tr>
 	      <tr>
-	     	<td valign="top"><label><strong>DescriÁ„o</strong></label></td>
-	     	<td><textarea name="descricao" placeholder="Descreva os detalhes da sua reuni„o ...	" rows="15" class="span12" >${reuniao.descricao}</textarea></td> 
+	     	<td valign="top"><label><strong>Descri√ß√£o</strong></label></td>
+	     	<td><textarea name="descricao" placeholder="Descreva os detalhes da sua reuni√£o ...	" rows="15" class="span12" >${reuniao.descricao}</textarea></td> 
 	      </tr>
 	    </table>
 	  </div>
@@ -62,7 +63,7 @@
 	  <div class="span5" style="background-color:buttonhighlight; border-radius: 10px;">
 	    <table style="margin: 10px">
 	        <tr height="40px" style="padding: 10px">
-	          <th valign="top" align="left" width="225px"><p><i class="icon-user"></i> Participante da Reuni„o</p></th>
+	          <th valign="top" align="left" width="225px"><p><i class="icon-user"></i> Participante da Reuni√£o</p></th>
 	          <th valign="top" width="75px">Tarefas</th>
 	        </tr>
 	      <c:forEach items="${reuniao.contatos}" var="contato">

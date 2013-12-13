@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name = "tarefa")
 public class Tarefa {
-
+	
 	@Id
 	@GeneratedValue
 	private Integer id;
@@ -28,6 +28,8 @@ public class Tarefa {
 	
 	private boolean status = false;
 
+	private boolean prazoIsOk;
+	
 	@ManyToOne()
 	@JoinColumn(name = "reuniaoId")
 	private Reuniao reuniao;
@@ -35,11 +37,11 @@ public class Tarefa {
 	@ManyToOne()
 	@JoinColumn(name = "contatoId")
 	private Contato contato;
-	
-	public Contato getContato() {
+
+	public Contato getContato(){
 		return contato;
 	}
-
+	
 	public void setContato(Contato contato) {
 		this.contato = contato;
 	}

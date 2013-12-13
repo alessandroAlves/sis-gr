@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.sisgr.dao.ContatoDAO;
 import br.com.sisgr.dao.ReuniaoDAO;
-import br.com.sisgr.dao.TarefaDAO;
 import br.com.sisgr.model.Contato;
 import br.com.sisgr.model.Reuniao;
 import br.com.sisgr.model.Usuario;
@@ -143,4 +141,9 @@ public class ReuniaoController implements IController{
 		return "reuniao/enviar";
 	}
 	
+	@RequestMapping(value = "/downloadPDF/{id}", method = RequestMethod.GET)
+	public ModelAndView download(@PathVariable Integer id){
+		Reuniao reuniao = reuniaoDAO.carregar(id); 
+		return new ModelAndView("pdfView", "reuniao" , reuniao);
+	}
 }

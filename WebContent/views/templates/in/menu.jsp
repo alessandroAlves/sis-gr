@@ -6,6 +6,6 @@
 	<li><a href="/sis-gr/listarReuniao"><i class="icon-comment"></i> Reuniões</a></li>
 	<li><a href="/sis-gr/listarTarefas/${usuario.id}"><i class="icon-list"></i> Tarefas</a></li>
 	<li class="divider"></li>
-	<li><a href="/sis-gr/export/download"><i class="icon-download-alt"></i> Exportar</a></li>
+	<li><a href="/sis-gr/download"><i class="icon-download-alt"></i> Exportar</a></li>
   </ul>
 </div>

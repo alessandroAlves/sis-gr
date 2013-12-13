@@ -1,6 +1,7 @@
 package br.com.sisgr.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -56,6 +57,8 @@ public class TarefaController implements IController{
 	public ModelAndView listar(@PathVariable Integer id){
 		ModelAndView mav = new ModelAndView("tarefa/tarefas");
 		List<Tarefa> tarefas = new ArrayList<>();
+		List<Tarefa> tarefasForaDoPrazo = new ArrayList<>();
+		Date date = new Date();
 		
 		for (Reuniao reuniao: reuniaoDAO.listar(id)){
 			for(Contato contato: reuniao.getContatos()){
@@ -63,11 +66,14 @@ public class TarefaController implements IController{
 			}
 		}
 		
-		for (Tarefa tarefa : tarefas) {
-			System.out.println(" ------------------  " + tarefa.getDescricao() + "  ////////  " + tarefa.getContato().getNome());
+		for (Tarefa tarefa: tarefas){
+			if(tarefa.getPrazo().compareTo(date) < 0 && tarefa.isStatus() == false){
+				tarefasForaDoPrazo.add(tarefa);
+			}
 		}
 		
-		mav.addObject("tarefas", tarefas);	
+		mav.addObject("tarefas", tarefas);
+		mav.addObject("tarefas2", tarefasForaDoPrazo);
 		return mav;
 	}
 }

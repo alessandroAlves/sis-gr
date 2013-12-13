@@ -10,7 +10,7 @@
 	  <table class="table table-bordered table-ordered table-condensed table-hover" style="background-color:buttonhighlight">
 	    <c:forEach items="${contato.tarefas}" var="tarefa">
 	     <tr class="info">	
-	       <td valign="bottom" class="span6"><a href="#" data-toggle="tooltip" title="Clique para editar a tarefa.">${tarefa.descricao}</a></td>
+	       <td valign="bottom" class="span6"><a href="/sis-gr/tarefas/${contato.id}" data-toggle="tooltip" title="Clique para editar a tarefa.">${tarefa.descricao}</a></td>
 	       <td width="80px"><strong><fmt:formatDate pattern="dd-MM-yyyy" value="${tarefa.prazo}"/></strong></td>
 	       <c:if test="${tarefa.status eq false}">
 	       	<td width="78px"><button class="btn btn-warning btn-small" disabled>PENDENTE</button></td>

@@ -1,14 +1,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<table class="table-bordered table-hover">
+<table id="tabela" class="table-bordered table-hover">
   <thead>
 	<tr align="center" height="45px" style="font-size: 14px; background-color:threedlightshadow;">
-	  <td width="260px"><strong>Reunião</strong></td>
-	  <td width="160px"><strong>Data</strong></td>
-	  <td width="160px"><strong>Hora de início</strong></td>
-	  <td width="210px"><strong>Local</strong></td>
+	  <th width="260px"><strong>Reunião</strong></th>
+	  <th width="160px"><strong>Data</strong></th>
+	  <th width="160px"><strong>Hora de início</strong></th>
+	  <th width="210px"><strong>Local</strong></th>
 	</tr>
+	 <tr style="background-color:highlight;" valign="bottom" height="50"> 
+	  	<th ><input style="width: 260px" type="text" id="txtColuna1" ></th>
+	  	<th ><input style="width: 120px" type="text" id="txtColuna2" ></th>
+	  	<th ><input style="width: 120px" type="text" id="txtColuna3" ></th>
+	  	<th ><input style="width: 210px" type="text" id="txtColuna4" ></th>
+
+	  </tr>
   </thead>
   <c:forEach items="${reunioes}" var="reuniao">
   <tr align="center" height="40px" style="background-color:buttonhighlight;">
