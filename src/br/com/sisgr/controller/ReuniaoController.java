@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.mail.SimpleEmail;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -145,5 +146,59 @@ public class ReuniaoController implements IController{
 	public ModelAndView download(@PathVariable Integer id){
 		Reuniao reuniao = reuniaoDAO.carregar(id); 
 		return new ModelAndView("pdfView", "reuniao" , reuniao);
+	}
+	
+	@SuppressWarnings("deprecation")
+	@RequestMapping(value = "/compartilhar/{id}", method = RequestMethod.GET)
+	public String compartilhar(@PathVariable Integer id)
+			throws Exception {
+		Reuniao reuniao = (Reuniao) reuniaoDAO.carregar(id);
+		try {
+			for (Contato contato : reuniao.getContatos()) {
+				SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
+				SimpleDateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+				if (contato != null) {
+					SimpleEmail email = new SimpleEmail();
+					email.setHostName("smtp.gmail.com");
+					email.setSmtpPort(465);
+					email.addTo(contato .getEmail());
+					email.setFrom("projetosisgr@gmail.com");
+					email.setSubject(reuniao.getNome());
+					String msg = "<h1 class='muted'>SisGR</h1>"
+							+ "<h3 class='muted'>" + contato.getNome() + " você foi convidado(a) para uma reuniao.</h2>"
+							+ "<table style='margin: 15px' class='table-condensed'>"
+							+ "<h3>Reuniao:</h3>"
+							+ "<tr>"
+							+ "<td width='83px'><label><strong>Título</strong></label></td>"
+							+ "<td>" + reuniao.getNome() + "</td>"
+							+ "</tr>"
+							+ "<tr>"
+							+ "<td><label><strong>Dia</strong></label></td>"
+							+ "<td>" + dateFormat.format(reuniao.getDia()) + "<br /></td>"
+							+ "</tr>"
+							+ "<tr>"
+							+ "<td><label><strong>Início</strong></label></td>"
+							+ "<td>" + hourFormat.format(reuniao.getInicio()) + "</td>"
+							+ "</tr>"
+							+ "<tr>"
+							+ "<td><label><strong>Fim</strong></label></td>"
+							+ "<td>" + hourFormat.format(reuniao.getFim()) + "<br /></td>"
+							+ "</tr>"
+							+ "<tr>"
+							+ "<td valign='top'><label><strong>Descrição</strong></label></td>"
+							+ "<td>" + reuniao.getDescricao() + "</td>"
+							+ "</tr>"
+							+ "</table>";
+					email.setContent("<html><head></head><body>" + msg + "</body></html>", "text/html");
+					email.setSSL(true);
+					email.setAuthentication("projetosisgr@gmail.com", "sisgr123456");
+					email.send();
+				}
+			}
+			return "redirect:/editarReuniao/" + id;
+			
+		} catch (Exception e) {
+			return "agenda";			
+		}
 	}
 }

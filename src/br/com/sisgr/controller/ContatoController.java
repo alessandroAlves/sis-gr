@@ -1,6 +1,5 @@
 package br.com.sisgr.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;

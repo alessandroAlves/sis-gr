@@ -12,7 +12,7 @@
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Ações<b class="caret"></b></a>
       <ul class="dropdown-menu">
-        <li><a href="/sis-gr/enviarReuniao/${reuniao.id}"><i class="icon-envelope"></i> Enviar convites</a></li>
+        <li><a href="/sis-gr/compartilhar/${reuniao.id}"><i class="icon-envelope"></i> Enviar convites</a></li>
         <li><a href="/sis-gr/listaTarefas/${reuniao.id}"><i class="icon-list"></i> Lista de tarefas</a></li>
         <li><a href="/sis-gr/downloadPDF/${reuniao.id}"><i class="icon-print"></i> Imprimir</a></li>
         <li class="divider" />

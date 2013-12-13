@@ -27,8 +27,6 @@ public class Tarefa {
 	private Date prazo;
 	
 	private boolean status = false;
-
-	private boolean prazoIsOk;
 	
 	@ManyToOne()
 	@JoinColumn(name = "reuniaoId")
