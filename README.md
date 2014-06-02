@@ -3,12 +3,12 @@ sis-gr
 
 <b>Sistema para gerenciamento de reuniões</b>
 
-Alunos: Alessandro de Lima, Rafael de Brito e Vanderson Ramos
+<strong>Alunos:</strong> Alessandro de Lima, Rafael de Brito e Vanderson Ramos
 
-Objetivos:
+<strong>Objetivos:</strong>
 	Aumentar a produtividade de reuniões dando suporte ao processo de gerenciamento destes eventos, desde o agendamento da reunião, até o acompanhamento dos objetivos e responsabilidades traçados durante o evento.
 	
-Esse sistema foi construído com as seguintes técnologias: 
+<strong>Esse sistema foi construído com as seguintes técnologias: </strong>
 	
 Linguagem Java : http://www.oracle.com/technetwork/java/index.html?ssSourceSiteId=opn
 	
